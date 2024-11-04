@@ -40,7 +40,7 @@ function SignUp({AddAccount}){
     
 
     return(
-        <View >
+        <View style={styles.formContainer} >
             <TextInput 
                 placeholder="Email"
                 value={Email}
@@ -81,11 +81,16 @@ function SignUp({AddAccount}){
             <Button 
                 onPress={Submit}
                 title="Submit"
-                style ={{padding : 20,color:'#c3b360'}}
+                style ={{backgroundColor:'#c3b360'}}
             />
             {submitted && (
-                <View>
-                    <Text style = {styles.welcome}><Text style={{fontWeight:"bold"}}>~Welcome~</Text>  {"\n\n\n"}<Text style = {styles.key}>Name:</Text>  {userInfo.Fullname}{"\n\n"}<Text style = {styles.key}>Address:</Text> {userInfo.address} {"\n\n"} <Text style = {styles.key}>Email:</Text>{userInfo.Email} </Text>
+                <View style={styles.welcomeContainer}>
+                    <Text style = {styles.welcome}>
+                        <Text style={{fontWeight:"bold"}}>~Welcome~</Text>  {"\n\n\n"}
+                        <Text style = {styles.key}>Name:</Text>  {userInfo.Fullname}{"\n\n"}
+                        <Text style = {styles.key}>Address:</Text> {userInfo.address} {"\n\n"} 
+                        <Text style = {styles.key}>Email:</Text>{userInfo.Email} 
+                    </Text>
                 </View>
             
             )}
@@ -95,25 +100,31 @@ function SignUp({AddAccount}){
 }
 
 const styles = StyleSheet.create({
-    inputStyle : {
+    formContainer: {
+        width: '100%',
+        padding: 20,
+    },
+    inputStyle: {
         color: "white",
-        padding: 10,
-    },
- 
-    key: {
-        fontWeight:'bold',
-        color : '#c3b360',
-        
-    },
-
-    welcome : {
         backgroundColor: '#333',
-        padding : 40,
-        top:40,
-        color : 'white',
-        opacity:0.8,
-        
+        padding: 10,
+        margin: 13,
+        borderRadius: 5,
     },
-})
+    welcomeContainer: {
+        marginTop: 20,
+        padding: 20,
+        backgroundColor: '#333',
+        opacity:0.8,
+        borderRadius: 5,
+    },
+    welcome: {
+        color: '#fff',
+        fontSize: 16,
+    },
+    key: {
+        color: '#c3b360',
+    },
+  });
 
 export default SignUp
